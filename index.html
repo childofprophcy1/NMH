@@ -28,14 +28,24 @@ header{background:var(--emerald-dark);color:white;position:sticky;top:0;z-index:
 .hero-strip p{font-size:0.875rem;color:#a7f3d0;max-width:480px;margin:0 auto;}
 .hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
 .badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:4px 14px;font-size:0.75rem;color:#d1fae5;}
+/* SEARCH BAR */
+.search-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:12px 16px;}
+.search-inner{max-width:1100px;margin:0 auto;position:relative;}
+.search-inner input{width:100%;border:1.5px solid var(--border);border-radius:50px;padding:10px 16px 10px 42px;font-family:"DM Sans",sans-serif;font-size:0.875rem;color:var(--ink);outline:none;background:var(--cream);transition:border-color 0.18s;}
+.search-inner input:focus{border-color:var(--emerald);background:white;}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;display:none;}
+/* FILTERS */
 .filters-wrap{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:90;}
-.filters{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+.filters{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
 .filters::-webkit-scrollbar{display:none;}
 .filter-btn{flex-shrink:0;background:var(--emerald-pale);border:1.5px solid transparent;color:var(--emerald-dark);padding:6px 16px;border-radius:50px;font-family:"DM Sans",sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
 .filter-btn:hover{background:var(--emerald-light);color:white;}
 .filter-btn.active{background:var(--emerald);color:white;}
 main{max-width:1100px;margin:0 auto;padding:24px 16px 40px;}
 .section-title{font-family:"DM Serif Display",serif;font-size:1.3rem;color:var(--emerald-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--emerald-pale);}
+.no-results{text-align:center;padding:50px 20px;color:var(--muted);grid-column:1/-1;}
+.no-results .nr-icon{font-size:2.5rem;margin-bottom:10px;}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;}
 @media(min-width:640px){.products-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}}
 .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;}
@@ -120,9 +130,12 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 40px;}
 .map-title{font-family:"DM Serif Display",serif;font-size:1.2rem;color:var(--emerald-dark);margin-bottom:16px;}
 .map-layout{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;}
 .map-layout iframe{flex:1;min-width:260px;border:0;border-radius:var(--radius);display:block;}
-.map-info{flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px;}
-.map-info-name{font-size:0.9rem;font-weight:600;color:var(--ink);}
+.map-info{flex:1;min-width:220px;display:flex;flex-direction:column;gap:12px;}
+.map-info-name{font-size:0.95rem;font-weight:700;color:var(--ink);}
 .map-info-detail{font-size:0.82rem;color:var(--muted);line-height:1.8;}
+.landmark-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.landmark-list li{font-size:0.8rem;color:var(--ink);display:flex;align-items:center;gap:8px;background:var(--emerald-pale);padding:7px 12px;border-radius:var(--radius-sm);}
+.landmark-list li span.dist{margin-left:auto;font-weight:600;color:var(--emerald-dark);white-space:nowrap;}
 .map-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
 .map-btn-p{display:inline-flex;align-items:center;gap:6px;background:var(--emerald);color:white;text-decoration:none;padding:9px 16px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;}
 .map-btn-s{display:inline-flex;align-items:center;gap:6px;background:var(--emerald-pale);color:var(--emerald-dark);text-decoration:none;padding:9px 16px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;}
@@ -139,7 +152,7 @@ footer strong{color:white;}
     <div>
       <div class="brand-name">Nidhi <span>Medical Hall</span></div>
       <div class="brand-tagline">
-        Azamgarh, UP - Trusted since day one
+        Azamgarh, UP &mdash; Serving since 1978
         <span class="open-badge" id="open-badge"></span>
       </div>
     </div>
@@ -152,12 +165,21 @@ footer strong{color:white;}
 
 <div class="hero-strip">
   <h2>Your neighbourhood pharmacy, online.</h2>
-  <p>Browse medicines, creams &amp; health products - Place an order - We'll confirm on WhatsApp</p>
+  <p>Trusted by Azamgarh families since 1978 &middot; Browse &amp; order medicines online &middot; We'll confirm on WhatsApp</p>
   <div class="hero-badges">
     <span class="badge">Tablets &amp; Medicines</span>
     <span class="badge">Creams &amp; Lotions</span>
     <span class="badge">Syrups &amp; Drops</span>
     <span class="badge">Healthcare</span>
+  </div>
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-wrap">
+  <div class="search-inner">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" id="search-input" placeholder="Search medicines, creams, syrups..." oninput="handleSearch(this.value)">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()">&#x2715;</button>
   </div>
 </div>
 
@@ -174,7 +196,7 @@ footer strong{color:white;}
 </div>
 
 <main>
-  <div class="section-title">Our Products</div>
+  <div class="section-title" id="section-title">Our Products</div>
   <div class="products-grid" id="products-grid"></div>
 </main>
 
@@ -183,7 +205,7 @@ footer strong{color:white;}
 <div class="cart-drawer" id="cart-drawer">
   <div class="drawer-header">
     <h3>Your Cart</h3>
-    <button class="close-btn" onclick="closeCart()">X</button>
+    <button class="close-btn" onclick="closeCart()">&#x2715;</button>
   </div>
   <div class="cart-items" id="cart-items-list">
     <div class="cart-empty"><div class="icon">&#128717;</div><p>Your cart is empty.</p></div>
@@ -193,7 +215,7 @@ footer strong{color:white;}
       <span class="cart-total-label">Grand Total</span>
       <span class="cart-total-amount" id="cart-total">Rs.0</span>
     </div>
-    <button class="checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled>Proceed to Order</button>
+    <button class="checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled>Proceed to Order &rarr;</button>
   </div>
 </div>
 
@@ -201,7 +223,7 @@ footer strong{color:white;}
   <div class="modal">
     <div class="modal-header">
       <h3>Place Your Order</h3>
-      <button class="close-btn" onclick="closeCheckout()">X</button>
+      <button class="close-btn" onclick="closeCheckout()">&#x2715;</button>
     </div>
     <div class="modal-body">
       <div class="order-summary-box">
@@ -217,7 +239,7 @@ footer strong{color:white;}
       <div id="checkout-form-wrap">
         <div class="wa-note">
           <span>&#128241;</span>
-          <span>Fill the form below. WhatsApp will open with your order pre-typed - just tap <strong>Send</strong>!</span>
+          <span>Fill the form below. WhatsApp will open with your order pre-typed &mdash; just tap <strong>Send</strong>!</span>
         </div>
         <div class="form-group">
           <label>Customer Name <span class="req">*</span></label>
@@ -252,14 +274,23 @@ footer strong{color:white;}
 
 <div class="toast" id="toast"></div>
 
+<!-- MAP SECTION -->
 <div class="map-section">
   <div class="map-inner">
     <div class="map-title">&#128205; Find Us</div>
     <div class="map-layout">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.1!2d83.1805677!3d26.0566244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991bcb9c85ec57d%3A0x8dfd293af6f3b3ab!2sNidhi%20medical%20Hall!5e0!3m2!1sen!2sin!4v1" height="240" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.1!2d83.1805677!3d26.0566244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991bcb9c85ec57d%3A0x8dfd293af6f3b3ab!2sNidhi%20medical%20Hall!5e0!3m2!1sen!2sin!4v1" height="260" allowfullscreen="" loading="lazy"></iframe>
       <div class="map-info">
-        <div class="map-info-name">Nidhi Medical Hall</div>
-        <div class="map-info-detail">Azamgarh, Uttar Pradesh<br>Mon-Sat: 9:00 AM - 9:30 PM<br>Sunday: 10:00 AM - 9:00 PM</div>
+        <div class="map-info-name">Nidhi Medical Hall, Azamgarh</div>
+        <div class="map-info-detail">
+          &#128336; Mon&ndash;Sat: 9:00 AM &ndash; 9:30 PM<br>
+          &#128336; Sunday: 10:00 AM &ndash; 9:00 PM
+        </div>
+        <ul class="landmark-list">
+          <li>&#9992;&#65039; Azamgarh Airport <span class="dist">16 km away</span></li>
+          <li>&#128650; Azamgarh Railway Station <span class="dist">3.6 km away</span></li>
+          <li>&#128652; Azamgarh Bus Stand <span class="dist">800 m away</span></li>
+        </ul>
         <div class="map-btns">
           <a href="https://maps.app.goo.gl/b6p3kajt9Lf8Q2Kj9" target="_blank" class="map-btn-p">&#128205; Get Directions</a>
           <a href="tel:8081424477" class="map-btn-s">&#128222; Call Us</a>
@@ -270,9 +301,9 @@ footer strong{color:white;}
 </div>
 
 <footer>
-  <p><strong>Nidhi Medical Hall</strong> - Azamgarh, Uttar Pradesh</p>
-  <p style="margin-top:6px;">8081424477 - adraj11o2@gmail.com</p>
-  <p style="margin-top:6px;">Mon-Sat: 9:00 AM - 9:30 PM | Sun: 10:00 AM - 9:00 PM</p>
+  <p><strong>Nidhi Medical Hall</strong> &mdash; Est. 1978 &mdash; Azamgarh, Uttar Pradesh</p>
+  <p style="margin-top:6px;">8081424477 &nbsp;&middot;&nbsp; adraj11o2@gmail.com</p>
+  <p style="margin-top:6px;">Mon&ndash;Sat: 9:00 AM &ndash; 9:30 PM &nbsp;|&nbsp; Sun: 10:00 AM &ndash; 9:00 PM</p>
   <p style="margin-top:8px;font-size:0.72rem;opacity:0.7;">Order collection system. Payment handled offline at delivery.</p>
 </footer>
 
@@ -294,40 +325,61 @@ var PRODUCTS = [
 
 var cart = JSON.parse(localStorage.getItem("nidhi_cart") || "[]");
 var activeFilter = "All";
+var searchQuery = "";
 
-function saveCart(){localStorage.setItem("nidhi_cart",JSON.stringify(cart));}
+function saveCart(){ localStorage.setItem("nidhi_cart", JSON.stringify(cart)); }
 
 function updateOpenStatus(){
   var now = new Date();
   var day = now.getDay();
   var mins = now.getHours()*60 + now.getMinutes();
-  var open = (day===0) ? 10*60 : 9*60;
-  var close = (day===0) ? 21*60 : 21*60+30;
-  var isOpen = mins>=open && mins<close;
+  var open = (day===0) ? 600 : 540;
+  var close = (day===0) ? 1260 : 1290;
+  var isOpen = mins >= open && mins < close;
   var badge = document.getElementById("open-badge");
   badge.textContent = isOpen ? "OPEN NOW" : "CLOSED";
   badge.style.background = isOpen ? "#22c55e" : "#ef4444";
   badge.style.color = "#fff";
 }
 
-function renderProducts(filter){
+function getFilteredProducts(){
+  var list = activeFilter === "All" ? PRODUCTS : PRODUCTS.filter(function(p){ return p.category === activeFilter; });
+  if(searchQuery){
+    var q = searchQuery.toLowerCase();
+    list = list.filter(function(p){ return p.name.toLowerCase().indexOf(q) > -1 || p.desc.toLowerCase().indexOf(q) > -1 || p.category.toLowerCase().indexOf(q) > -1; });
+  }
+  return list;
+}
+
+function renderProducts(){
   var grid = document.getElementById("products-grid");
-  var list = filter==="All" ? PRODUCTS : PRODUCTS.filter(function(p){return p.category===filter;});
-  if(!list.length){grid.innerHTML="<p style='padding:40px;color:#6b7280;'>No products found.</p>";return;}
+  var title = document.getElementById("section-title");
+  var list = getFilteredProducts();
+
+  if(searchQuery){
+    title.textContent = list.length > 0 ? "Search results for \"" + searchQuery + "\" (" + list.length + ")" : "No results for \"" + searchQuery + "\"";
+  } else {
+    title.textContent = activeFilter === "All" ? "Our Products" : activeFilter + "s";
+  }
+
+  if(!list.length){
+    grid.innerHTML = "<div class=\"no-results\"><div class=\"nr-icon\">&#128269;</div><p>No products found.<br><small>Try a different search or category.</small></p></div>";
+    return;
+  }
   grid.innerHTML = list.map(function(p){
-    var inCart = cart.find(function(c){return c.id===p.id;});
-    return "<div class='product-card'>" +
-      "<div class='product-img-wrap'>" +
-        "<img src='"+p.img+"' alt='"+p.name+"' loading='lazy'>" +
-        "<span class='product-category-tag'>"+p.category+"</span>" +
+    var inCart = cart.find(function(c){ return c.id === p.id; });
+    return "<div class=\"product-card\">" +
+      "<div class=\"product-img-wrap\">" +
+        "<img src=\"" + p.img + "\" alt=\"" + p.name + "\" loading=\"lazy\">" +
+        "<span class=\"product-category-tag\">" + p.category + "</span>" +
       "</div>" +
-      "<div class='product-body'>" +
-        "<div class='product-name'>"+p.name+"</div>" +
-        "<div class='product-desc'>"+p.desc+"</div>" +
-        "<div class='product-footer'>" +
-          "<span class='product-price'>Rs."+p.price+"</span>" +
-          "<button class='add-btn"+(inCart?" added":"")+"' id='add-btn-"+p.id+"' onclick='addToCart("+p.id+")'>" +
-            (inCart?"In Cart ("+inCart.qty+")":"+ Add") +
+      "<div class=\"product-body\">" +
+        "<div class=\"product-name\">" + p.name + "</div>" +
+        "<div class=\"product-desc\">" + p.desc + "</div>" +
+        "<div class=\"product-footer\">" +
+          "<span class=\"product-price\">Rs." + p.price + "</span>" +
+          "<button class=\"add-btn" + (inCart ? " added" : "") + "\" id=\"add-btn-" + p.id + "\" onclick=\"addToCart(" + p.id + ")\">" +
+            (inCart ? "In Cart (" + inCart.qty + ")" : "+ Add") +
           "</button>" +
         "</div>" +
       "</div>" +
@@ -335,114 +387,127 @@ function renderProducts(filter){
   }).join("");
 }
 
-function addToCart(id){
-  var product=PRODUCTS.find(function(p){return p.id===id;});
-  var existing=cart.find(function(c){return c.id===id;});
-  if(existing){existing.qty+=1;}
-  else{cart.push({id:id,name:product.name,price:product.price,img:product.img,qty:1});}
-  saveCart(); updateCartUI();
-  showToast(product.name+" added!");
-  var btn=document.getElementById("add-btn-"+id);
-  if(btn){var u=cart.find(function(c){return c.id===id;});btn.textContent="In Cart ("+u.qty+")";btn.classList.add("added");}
-  var el=document.getElementById("cart-count");el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");
+function handleSearch(val){
+  searchQuery = val.trim();
+  document.getElementById("search-clear").style.display = searchQuery ? "block" : "none";
+  renderProducts();
 }
 
-function changeQty(id,delta){
-  var item=cart.find(function(c){return c.id===id;});
-  if(!item)return;
-  item.qty+=delta;
-  if(item.qty<=0){cart=cart.filter(function(c){return c.id!==id;});}
-  saveCart();updateCartUI();renderProducts(activeFilter);
+function clearSearch(){
+  document.getElementById("search-input").value = "";
+  document.getElementById("search-clear").style.display = "none";
+  searchQuery = "";
+  renderProducts();
+}
+
+function addToCart(id){
+  var product = PRODUCTS.find(function(p){ return p.id === id; });
+  var existing = cart.find(function(c){ return c.id === id; });
+  if(existing){ existing.qty += 1; }
+  else{ cart.push({id:id, name:product.name, price:product.price, img:product.img, qty:1}); }
+  saveCart(); updateCartUI();
+  showToast(product.name + " added!");
+  var btn = document.getElementById("add-btn-" + id);
+  if(btn){ var u = cart.find(function(c){ return c.id === id; }); btn.textContent = "In Cart (" + u.qty + ")"; btn.classList.add("added"); }
+  var el = document.getElementById("cart-count"); el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump");
+}
+
+function changeQty(id, delta){
+  var item = cart.find(function(c){ return c.id === id; });
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty <= 0){ cart = cart.filter(function(c){ return c.id !== id; }); }
+  saveCart(); updateCartUI(); renderProducts();
 }
 
 function removeItem(id){
-  cart=cart.filter(function(c){return c.id!==id;});
-  saveCart();updateCartUI();renderProducts(activeFilter);
+  cart = cart.filter(function(c){ return c.id !== id; });
+  saveCart(); updateCartUI(); renderProducts();
 }
 
-function getTotal(){return cart.reduce(function(s,i){return s+i.price*i.qty;},0);}
-function getCount(){return cart.reduce(function(s,i){return s+i.qty;},0);}
+function getTotal(){ return cart.reduce(function(s,i){ return s + i.price * i.qty; }, 0); }
+function getCount(){ return cart.reduce(function(s,i){ return s + i.qty; }, 0); }
 
 function updateCartUI(){
-  var count=getCount(),total=getTotal();
-  document.getElementById("cart-count").textContent=count;
-  document.getElementById("cart-total").textContent="Rs."+total;
-  document.getElementById("checkout-btn").disabled=count===0;
-  var el=document.getElementById("cart-items-list");
-  if(!cart.length){el.innerHTML="<div class='cart-empty'><div class='icon'>&#128717;</div><p>Your cart is empty.</p></div>";return;}
-  el.innerHTML=cart.map(function(item){
-    return "<div class='cart-item'>" +
-      "<img class='cart-item-img' src='"+item.img+"' alt='"+item.name+"' loading='lazy'>" +
-      "<div class='cart-item-info'>" +
-        "<div class='cart-item-name'>"+item.name+"</div>" +
-        "<div class='cart-item-price'>Rs."+item.price+" each</div>" +
-        "<div class='cart-item-subtotal'>Subtotal: Rs."+(item.price*item.qty)+"</div>" +
+  var count = getCount(), total = getTotal();
+  document.getElementById("cart-count").textContent = count;
+  document.getElementById("cart-total").textContent = "Rs." + total;
+  document.getElementById("checkout-btn").disabled = count === 0;
+  var el = document.getElementById("cart-items-list");
+  if(!cart.length){ el.innerHTML = "<div class=\"cart-empty\"><div class=\"icon\">&#128717;</div><p>Your cart is empty.</p></div>"; return; }
+  el.innerHTML = cart.map(function(item){
+    return "<div class=\"cart-item\">" +
+      "<img class=\"cart-item-img\" src=\"" + item.img + "\" alt=\"" + item.name + "\" loading=\"lazy\">" +
+      "<div class=\"cart-item-info\">" +
+        "<div class=\"cart-item-name\">" + item.name + "</div>" +
+        "<div class=\"cart-item-price\">Rs." + item.price + " each</div>" +
+        "<div class=\"cart-item-subtotal\">Subtotal: Rs." + (item.price * item.qty) + "</div>" +
       "</div>" +
-      "<div class='qty-controls'>" +
-        "<button class='qty-btn remove' onclick='removeItem("+item.id+")'>&#128465;</button>" +
-        "<button class='qty-btn' onclick='changeQty("+item.id+",-1)'>&#8722;</button>" +
-        "<span class='qty-num'>"+item.qty+"</span>" +
-        "<button class='qty-btn' onclick='changeQty("+item.id+",1)'>+</button>" +
+      "<div class=\"qty-controls\">" +
+        "<button class=\"qty-btn remove\" onclick=\"removeItem(" + item.id + ")\">&#128465;</button>" +
+        "<button class=\"qty-btn\" onclick=\"changeQty(" + item.id + ", -1)\">&#8722;</button>" +
+        "<span class=\"qty-num\">" + item.qty + "</span>" +
+        "<button class=\"qty-btn\" onclick=\"changeQty(" + item.id + ", 1)\">+</button>" +
       "</div>" +
     "</div>";
   }).join("");
 }
 
-function openCart(){document.getElementById("cart-drawer").classList.add("open");document.getElementById("overlay").classList.add("open");document.body.style.overflow="hidden";}
-function closeCart(){document.getElementById("cart-drawer").classList.remove("open");document.getElementById("overlay").classList.remove("open");document.body.style.overflow="";}
+function openCart(){ document.getElementById("cart-drawer").classList.add("open"); document.getElementById("overlay").classList.add("open"); document.body.style.overflow = "hidden"; }
+function closeCart(){ document.getElementById("cart-drawer").classList.remove("open"); document.getElementById("overlay").classList.remove("open"); document.body.style.overflow = ""; }
 
 function openCheckout(){
   document.getElementById("success-screen").classList.remove("show");
-  document.getElementById("checkout-form-wrap").style.display="block";
-  document.getElementById("f-name").value="";
-  document.getElementById("f-phone").value="";
-  document.getElementById("f-address").value="";
-  document.getElementById("f-instructions").value="";
-  var html=cart.map(function(item){return "<div class='summary-line'><span>"+item.name+" x"+item.qty+"</span><span>Rs."+(item.price*item.qty)+"</span></div>";}).join("");
-  html+="<div class='summary-line summary-total'><span>TOTAL</span><span>Rs."+getTotal()+"</span></div>";
-  document.getElementById("modal-order-summary").innerHTML=html;
+  document.getElementById("checkout-form-wrap").style.display = "block";
+  document.getElementById("f-name").value = "";
+  document.getElementById("f-phone").value = "";
+  document.getElementById("f-address").value = "";
+  document.getElementById("f-instructions").value = "";
+  var html = cart.map(function(item){ return "<div class=\"summary-line\"><span>" + item.name + " x" + item.qty + "</span><span>Rs." + (item.price * item.qty) + "</span></div>"; }).join("");
+  html += "<div class=\"summary-line summary-total\"><span>TOTAL</span><span>Rs." + getTotal() + "</span></div>";
+  document.getElementById("modal-order-summary").innerHTML = html;
   document.getElementById("checkout-modal").classList.add("open");
-  document.body.style.overflow="hidden";
+  document.body.style.overflow = "hidden";
 }
 
-function closeCheckout(){document.getElementById("checkout-modal").classList.remove("open");document.body.style.overflow="";}
+function closeCheckout(){ document.getElementById("checkout-modal").classList.remove("open"); document.body.style.overflow = ""; }
 
 function placeOrderWhatsApp(){
-  var name=document.getElementById("f-name").value.trim();
-  var phone=document.getElementById("f-phone").value.trim();
-  var address=document.getElementById("f-address").value.trim();
-  var instructions=document.getElementById("f-instructions").value.trim();
-  if(!name){showToast("Please enter your name");document.getElementById("f-name").focus();return;}
-  if(!phone||!/^[6-9][0-9]{9}$/.test(phone)){showToast("Enter a valid 10-digit phone number");document.getElementById("f-phone").focus();return;}
-  if(!address){showToast("Please enter your delivery address");document.getElementById("f-address").focus();return;}
-  var lines=cart.map(function(i){return "- "+i.name+" x"+i.qty+" = Rs."+(i.price*i.qty);}).join("\n");
-  var msg="New Order - Nidhi Medical Hall\n\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+(instructions?"\nInstructions: "+instructions:"")+"\n\nItems:\n"+lines+"\n\nTotal: Rs."+getTotal();
-  window.open("https://wa.me/918081424477?text="+encodeURIComponent(msg),"_blank");
-  cart=[];saveCart();updateCartUI();renderProducts(activeFilter);
-  document.getElementById("checkout-form-wrap").style.display="none";
+  var name = document.getElementById("f-name").value.trim();
+  var phone = document.getElementById("f-phone").value.trim();
+  var address = document.getElementById("f-address").value.trim();
+  var instructions = document.getElementById("f-instructions").value.trim();
+  if(!name){ showToast("Please enter your name"); document.getElementById("f-name").focus(); return; }
+  if(!phone || !/^[6-9][0-9]{9}$/.test(phone)){ showToast("Enter a valid 10-digit phone number"); document.getElementById("f-phone").focus(); return; }
+  if(!address){ showToast("Please enter your delivery address"); document.getElementById("f-address").focus(); return; }
+  var lines = cart.map(function(i){ return "- " + i.name + " x" + i.qty + " = Rs." + (i.price * i.qty); }).join("\n");
+  var msg = "New Order - Nidhi Medical Hall\n\nName: " + name + "\nPhone: " + phone + "\nAddress: " + address + (instructions ? "\nInstructions: " + instructions : "") + "\n\nItems:\n" + lines + "\n\nTotal: Rs." + getTotal();
+  window.open("https://wa.me/918081424477?text=" + encodeURIComponent(msg), "_blank");
+  cart = []; saveCart(); updateCartUI(); renderProducts();
+  document.getElementById("checkout-form-wrap").style.display = "none";
   document.getElementById("success-screen").classList.add("show");
 }
 
-document.getElementById("filters").addEventListener("click",function(e){
-  var btn=e.target.closest(".filter-btn");
-  if(!btn)return;
-  document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active");});
+document.getElementById("filters").addEventListener("click", function(e){
+  var btn = e.target.closest(".filter-btn");
+  if(!btn) return;
+  document.querySelectorAll(".filter-btn").forEach(function(b){ b.classList.remove("active"); });
   btn.classList.add("active");
-  activeFilter=btn.dataset.cat;
-  renderProducts(activeFilter);
+  activeFilter = btn.dataset.cat;
+  renderProducts();
 });
 
 var toastTimer;
 function showToast(msg){
-  var t=document.getElementById("toast");
-  t.textContent=msg;t.classList.add("show");
+  var t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(function(){t.classList.remove("show");},2200);
+  toastTimer = setTimeout(function(){ t.classList.remove("show"); }, 2200);
 }
 
 updateOpenStatus();
-setInterval(updateOpenStatus,60000);
-renderProducts("All");
+setInterval(updateOpenStatus, 60000);
+renderProducts();
 updateCartUI();
 </script>
 </body>
