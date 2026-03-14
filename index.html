@@ -7,43 +7,35 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --emerald:#0d6e55; --emerald-light:#15a077; --emerald-pale:#e8f5f1;
-  --emerald-dark:#084d3b; --cream:#faf8f4; --white:#ffffff;
-  --ink:#1a1a2e; --muted:#6b7280; --border:#e5e7eb;
-  --red:#e53e3e; --amber:#f59e0b;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md:0 4px 16px rgba(0,0,0,0.1);
-  --shadow-lg:0 8px 32px rgba(0,0,0,0.14);
-  --radius:12px; --radius-sm:8px;
-}
+:root{--emerald:#0d6e55;--emerald-light:#15a077;--emerald-pale:#e8f5f1;--emerald-dark:#084d3b;--cream:#faf8f4;--white:#ffffff;--ink:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--red:#e53e3e;--amber:#f59e0b;--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.1);--shadow-lg:0 8px 32px rgba(0,0,0,0.14);--radius:12px;--radius-sm:8px;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;}
+body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;}
 header{background:var(--emerald-dark);color:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(8,77,59,0.3);}
 .header-inner{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.brand-name{font-family:'DM Serif Display',serif;font-size:clamp(1.25rem,4vw,1.75rem);color:#fff;}
+.brand-name{font-family:"DM Serif Display",serif;font-size:clamp(1.25rem,4vw,1.75rem);color:#fff;}
 .brand-name span{color:#6ee7be;}
-.brand-tagline{font-size:0.72rem;color:#a7f3d0;font-weight:300;margin-top:2px;}
+.brand-tagline{font-size:0.72rem;color:#a7f3d0;font-weight:300;margin-top:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.open-badge{display:inline-block;padding:2px 8px;border-radius:50px;font-size:0.65rem;font-weight:700;letter-spacing:0.4px;}
 .header-phone{font-size:0.8rem;color:#a7f3d0;display:none;}
 @media(min-width:480px){.header-phone{display:block;}}
-#cart-btn{background:var(--emerald-light);border:none;color:white;padding:8px 16px;border-radius:50px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:0.875rem;font-weight:500;transition:background 0.2s;}
+#cart-btn{background:var(--emerald-light);border:none;color:white;padding:8px 16px;border-radius:50px;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:"DM Sans",sans-serif;font-size:0.875rem;font-weight:500;transition:background 0.2s;}
 #cart-btn:hover{background:#12b889;}
 .cart-count{background:var(--amber);color:#1a1a2e;border-radius:50%;width:20px;height:20px;font-size:0.72rem;font-weight:600;display:flex;align-items:center;justify-content:center;}
 .cart-count.bump{animation:bump 0.4s cubic-bezier(0.34,1.56,0.64,1);}
 @keyframes bump{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
 .hero-strip{background:linear-gradient(135deg,var(--emerald) 0%,var(--emerald-dark) 100%);color:white;text-align:center;padding:28px 20px 22px;}
-.hero-strip h2{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,5vw,2rem);font-weight:400;margin-bottom:6px;}
+.hero-strip h2{font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,5vw,2rem);font-weight:400;margin-bottom:6px;}
 .hero-strip p{font-size:0.875rem;color:#a7f3d0;max-width:480px;margin:0 auto;}
 .hero-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
 .badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:50px;padding:4px 14px;font-size:0.75rem;color:#d1fae5;}
 .filters-wrap{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:90;}
 .filters{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
 .filters::-webkit-scrollbar{display:none;}
-.filter-btn{flex-shrink:0;background:var(--emerald-pale);border:1.5px solid transparent;color:var(--emerald-dark);padding:6px 16px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
+.filter-btn{flex-shrink:0;background:var(--emerald-pale);border:1.5px solid transparent;color:var(--emerald-dark);padding:6px 16px;border-radius:50px;font-family:"DM Sans",sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap;}
 .filter-btn:hover{background:var(--emerald-light);color:white;}
 .filter-btn.active{background:var(--emerald);color:white;}
-main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
-.section-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--emerald-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--emerald-pale);}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 40px;}
+.section-title{font-family:"DM Serif Display",serif;font-size:1.3rem;color:var(--emerald-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--emerald-pale);}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;}
 @media(min-width:640px){.products-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}}
 .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;}
@@ -56,8 +48,8 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .product-name{font-weight:600;font-size:0.875rem;line-height:1.3;color:var(--ink);margin-bottom:4px;}
 .product-desc{font-size:0.72rem;color:var(--muted);margin-bottom:10px;flex:1;}
 .product-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;}
-.product-price{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--emerald-dark);}
-.add-btn{background:var(--emerald);color:white;border:none;border-radius:var(--radius-sm);padding:7px 14px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:background 0.18s;white-space:nowrap;}
+.product-price{font-family:"DM Serif Display",serif;font-size:1.1rem;color:var(--emerald-dark);}
+.add-btn{background:var(--emerald);color:white;border:none;border-radius:var(--radius-sm);padding:7px 14px;font-family:"DM Sans",sans-serif;font-size:0.8rem;font-weight:500;cursor:pointer;transition:background 0.18s;white-space:nowrap;}
 .add-btn:hover{background:var(--emerald-light);}
 .add-btn.added{background:var(--amber);color:#1a1a2e;}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;}
@@ -65,7 +57,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .cart-drawer{position:fixed;right:-100%;top:0;width:min(420px,100vw);height:100vh;background:var(--white);z-index:300;display:flex;flex-direction:column;transition:right 0.32s cubic-bezier(0.4,0,0.2,1);box-shadow:-4px 0 32px rgba(0,0,0,0.15);}
 .cart-drawer.open{right:0;}
 .drawer-header{background:var(--emerald-dark);color:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.drawer-header h3{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;}
+.drawer-header h3{font-family:"DM Serif Display",serif;font-size:1.2rem;font-weight:400;}
 .close-btn{background:rgba(255,255,255,0.15);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
 .close-btn:hover{background:rgba(255,255,255,0.3);}
 .cart-items{flex:1;overflow-y:auto;padding:12px 16px;}
@@ -86,8 +78,8 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .cart-footer{background:var(--white);border-top:2px solid var(--border);padding:16px;flex-shrink:0;}
 .cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 .cart-total-label{font-size:0.875rem;color:var(--muted);font-weight:500;}
-.cart-total-amount{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--emerald-dark);}
-.checkout-btn{width:100%;background:var(--emerald);color:white;border:none;border-radius:var(--radius);padding:14px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.18s;}
+.cart-total-amount{font-family:"DM Serif Display",serif;font-size:1.4rem;color:var(--emerald-dark);}
+.checkout-btn{width:100%;background:var(--emerald);color:white;border:none;border-radius:var(--radius);padding:14px;font-family:"DM Sans",sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.18s;}
 .checkout-btn:hover{background:var(--emerald-light);}
 .checkout-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:400;align-items:flex-end;justify-content:center;}
@@ -96,7 +88,7 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .modal{background:var(--white);border-radius:var(--radius) var(--radius) 0 0;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;}
 @media(min-width:540px){.modal{border-radius:var(--radius);}}
 .modal-header{background:var(--emerald-dark);color:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;}
-.modal-header h3{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;}
+.modal-header h3{font-family:"DM Serif Display",serif;font-size:1.2rem;font-weight:400;}
 .modal-body{padding:20px;}
 .order-summary-box{background:var(--emerald-pale);border-radius:var(--radius-sm);padding:14px;margin-bottom:20px;font-size:0.8rem;}
 .order-summary-box h4{font-size:0.8rem;color:var(--emerald-dark);font-weight:600;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;}
@@ -106,16 +98,16 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .form-group{margin-bottom:14px;}
 .form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
 .req{color:var(--red);}
-.form-group input,.form-group textarea{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:0.875rem;color:var(--ink);background:white;outline:none;transition:border-color 0.18s;}
+.form-group input,.form-group textarea{width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:"DM Sans",sans-serif;font-size:0.875rem;color:var(--ink);background:white;outline:none;transition:border-color 0.18s;}
 .form-group input:focus,.form-group textarea:focus{border-color:var(--emerald);}
 .form-group textarea{resize:vertical;min-height:70px;}
 .wa-note{background:#f0fdf4;border:1.5px solid #86efac;border-radius:var(--radius-sm);padding:10px 14px;font-size:0.8rem;color:#166534;display:flex;gap:8px;align-items:flex-start;margin-bottom:16px;line-height:1.5;}
-.submit-btn{width:100%;background:var(--emerald);color:white;border:none;border-radius:var(--radius);padding:14px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;margin-top:6px;transition:background 0.18s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.submit-btn{width:100%;background:var(--emerald);color:white;border:none;border-radius:var(--radius);padding:14px;font-family:"DM Sans",sans-serif;font-size:1rem;font-weight:600;cursor:pointer;margin-top:6px;transition:background 0.18s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .submit-btn:hover{background:var(--emerald-light);}
 .success-screen{display:none;text-align:center;padding:40px 20px;}
 .success-screen.show{display:block;}
 .success-icon{width:72px;height:72px;background:var(--emerald-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 16px;}
-.success-screen h3{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--emerald-dark);margin-bottom:8px;}
+.success-screen h3{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--emerald-dark);margin-bottom:8px;}
 .success-screen p{font-size:0.875rem;color:var(--muted);margin-bottom:20px;}
 .wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:white;text-decoration:none;border-radius:50px;padding:12px 24px;font-weight:600;font-size:0.9rem;}
 .wa-btn:hover{background:#20bd5a;}
@@ -123,6 +115,17 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 120px;}
 .fab{width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transition:transform 0.2s;text-decoration:none;}
 .fab:hover{transform:scale(1.1);}
 .fab-wa{background:#25d366;}
+.map-section{background:var(--white);border-top:2px solid var(--emerald-pale);padding:32px 20px;}
+.map-inner{max-width:1100px;margin:0 auto;}
+.map-title{font-family:"DM Serif Display",serif;font-size:1.2rem;color:var(--emerald-dark);margin-bottom:16px;}
+.map-layout{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;}
+.map-layout iframe{flex:1;min-width:260px;border:0;border-radius:var(--radius);display:block;}
+.map-info{flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px;}
+.map-info-name{font-size:0.9rem;font-weight:600;color:var(--ink);}
+.map-info-detail{font-size:0.82rem;color:var(--muted);line-height:1.8;}
+.map-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.map-btn-p{display:inline-flex;align-items:center;gap:6px;background:var(--emerald);color:white;text-decoration:none;padding:9px 16px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;}
+.map-btn-s{display:inline-flex;align-items:center;gap:6px;background:var(--emerald-pale);color:var(--emerald-dark);text-decoration:none;padding:9px 16px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;}
 footer{background:var(--emerald-dark);color:#a7f3d0;text-align:center;padding:24px 20px;font-size:0.8rem;}
 footer strong{color:white;}
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--emerald-dark);color:white;padding:10px 22px;border-radius:50px;font-size:0.82rem;font-weight:500;opacity:0;transition:opacity 0.2s,transform 0.2s;z-index:500;white-space:nowrap;pointer-events:none;}
@@ -135,13 +138,14 @@ footer strong{color:white;}
   <div class="header-inner">
     <div>
       <div class="brand-name">Nidhi <span>Medical Hall</span></div>
-      <div class="brand-tagline">Azamgarh, UP - Trusted since day one</div>
+      <div class="brand-tagline">
+        Azamgarh, UP - Trusted since day one
+        <span class="open-badge" id="open-badge"></span>
+      </div>
     </div>
     <div style="display:flex;align-items:center;gap:16px;">
       <div class="header-phone">8081424477</div>
-      <button id="cart-btn" onclick="openCart()">
-        Cart <span class="cart-count" id="cart-count">0</span>
-      </button>
+      <button id="cart-btn" onclick="openCart()">Cart <span class="cart-count" id="cart-count">0</span></button>
     </div>
   </div>
 </header>
@@ -179,13 +183,10 @@ footer strong{color:white;}
 <div class="cart-drawer" id="cart-drawer">
   <div class="drawer-header">
     <h3>Your Cart</h3>
-    <button class="close-btn" onclick="closeCart()">&#x2715;</button>
+    <button class="close-btn" onclick="closeCart()">X</button>
   </div>
   <div class="cart-items" id="cart-items-list">
-    <div class="cart-empty">
-      <div class="icon">&#128717;</div>
-      <p>Your cart is empty. Add some products!</p>
-    </div>
+    <div class="cart-empty"><div class="icon">&#128717;</div><p>Your cart is empty.</p></div>
   </div>
   <div class="cart-footer">
     <div class="cart-total-row">
@@ -200,7 +201,7 @@ footer strong{color:white;}
   <div class="modal">
     <div class="modal-header">
       <h3>Place Your Order</h3>
-      <button class="close-btn" onclick="closeCheckout()">&#x2715;</button>
+      <button class="close-btn" onclick="closeCheckout()">X</button>
     </div>
     <div class="modal-body">
       <div class="order-summary-box">
@@ -210,13 +211,13 @@ footer strong{color:white;}
       <div class="success-screen" id="success-screen">
         <div class="success-icon">&#10003;</div>
         <h3>Order Placed!</h3>
-        <p>Thank you! Nidhi Medical Hall will contact you on WhatsApp to confirm your order and arrange delivery.</p>
+        <p>Thank you! <strong>Nidhi Medical Hall</strong> will contact you on WhatsApp to confirm your order.</p>
         <a href="https://wa.me/918081424477" target="_blank" class="wa-btn">Chat on WhatsApp</a>
       </div>
       <div id="checkout-form-wrap">
         <div class="wa-note">
           <span>&#128241;</span>
-          <span>Fill the form below. WhatsApp will open with your order pre-typed — just tap <strong>Send</strong>!</span>
+          <span>Fill the form below. WhatsApp will open with your order pre-typed - just tap <strong>Send</strong>!</span>
         </div>
         <div class="form-group">
           <label>Customer Name <span class="req">*</span></label>
@@ -251,187 +252,197 @@ footer strong{color:white;}
 
 <div class="toast" id="toast"></div>
 
+<div class="map-section">
+  <div class="map-inner">
+    <div class="map-title">&#128205; Find Us</div>
+    <div class="map-layout">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.1!2d83.1805677!3d26.0566244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991bcb9c85ec57d%3A0x8dfd293af6f3b3ab!2sNidhi%20medical%20Hall!5e0!3m2!1sen!2sin!4v1" height="240" allowfullscreen="" loading="lazy"></iframe>
+      <div class="map-info">
+        <div class="map-info-name">Nidhi Medical Hall</div>
+        <div class="map-info-detail">Azamgarh, Uttar Pradesh<br>Mon-Sat: 9:00 AM - 9:30 PM<br>Sunday: 10:00 AM - 9:00 PM</div>
+        <div class="map-btns">
+          <a href="https://maps.app.goo.gl/b6p3kajt9Lf8Q2Kj9" target="_blank" class="map-btn-p">&#128205; Get Directions</a>
+          <a href="tel:8081424477" class="map-btn-s">&#128222; Call Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <p><strong>Nidhi Medical Hall</strong> - Azamgarh, Uttar Pradesh</p>
-  <p style="margin-top:6px">8081424477 - adraj11o2@gmail.com</p>
-  <p style="margin-top:8px;font-size:0.72rem;opacity:0.7">Order collection system. Payment handled offline at delivery.</p>
+  <p style="margin-top:6px;">8081424477 - adraj11o2@gmail.com</p>
+  <p style="margin-top:6px;">Mon-Sat: 9:00 AM - 9:30 PM | Sun: 10:00 AM - 9:00 PM</p>
+  <p style="margin-top:8px;font-size:0.72rem;opacity:0.7;">Order collection system. Payment handled offline at delivery.</p>
 </footer>
 
 <script>
 var PRODUCTS = [
-  {id:1,name:"Hepalair Tab (150mg) 10 Tabs",price:100,category:"Tablet",img:"https://i.ibb.co/B5RzFQFz/Hepalair.jpg",desc:"Supports liver health and detoxification"},
-  {id:2,name:"Nivea Soft Cream (100ml)",price:150,category:"Cream",img:"https://i.ibb.co/0VGHk7Mp/nivea.jpg",desc:"Lightweight moisturising cream for daily use"},
-  {id:3,name:"Paracetamol 500mg 10 Tabs",price:25,category:"Tablet",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Paracetamol",desc:"Fever and mild pain relief"},
-  {id:4,name:"Cough Syrup 100ml",price:80,category:"Syrup",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Cough+Syrup",desc:"Relieves dry and wet cough"},
-  {id:5,name:"Eye Drops Lubricating 10ml",price:65,category:"Drops",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Eye+Drops",desc:"Relief from dryness and eye strain"},
-  {id:6,name:"Betadine Antiseptic Cream 15g",price:90,category:"Cream",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Betadine",desc:"Antiseptic wound care for cuts and burns"},
-  {id:7,name:"ORS Electrolyte Sachet Mango x5",price:40,category:"Healthcare",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=ORS+Sachet",desc:"Rehydration for dehydration and heat"},
-  {id:8,name:"Vitamin C 500mg 10 Tabs",price:55,category:"Supplement",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Vitamin+C",desc:"Immunity boost and antioxidant support"},
-  {id:9,name:"Omeprazole 20mg 10 Caps",price:35,category:"Tablet",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Omeprazole",desc:"Acidity heartburn and GERD relief"},
-  {id:10,name:"Multivitamin Syrup 200ml",price:120,category:"Syrup",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Multivitamin",desc:"Daily vitamins and minerals for all ages"},
-  {id:11,name:"Digital Thermometer",price:180,category:"Healthcare",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Thermometer",desc:"Fast and accurate fever measurement"},
-  {id:12,name:"Calcium plus Vitamin D3 10 Tabs",price:75,category:"Supplement",img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Calcium+D3",desc:"Strengthens bones and prevents deficiency"}
+  {id:1,  name:"Hepalair Tab (150mg) 10 Tabs",    price:100, category:"Tablet",     img:"https://i.ibb.co/B5RzFQFz/Hepalair.jpg",                       desc:"Supports liver health and detoxification"},
+  {id:2,  name:"Nivea Soft Cream (100ml)",         price:150, category:"Cream",      img:"https://i.ibb.co/0VGHk7Mp/nivea.jpg",                          desc:"Lightweight moisturising cream for daily use"},
+  {id:3,  name:"Paracetamol 500mg 10 Tabs",        price:25,  category:"Tablet",     img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Paracetamol",  desc:"Fever and mild pain relief"},
+  {id:4,  name:"Cough Syrup 100ml",                price:80,  category:"Syrup",      img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Cough+Syrup",  desc:"Relieves dry and wet cough"},
+  {id:5,  name:"Eye Drops Lubricating 10ml",       price:65,  category:"Drops",      img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Eye+Drops",    desc:"Relief from dryness and eye strain"},
+  {id:6,  name:"Betadine Antiseptic Cream 15g",    price:90,  category:"Cream",      img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Betadine",     desc:"Antiseptic wound care for cuts and burns"},
+  {id:7,  name:"ORS Electrolyte Sachet Mango x5",  price:40,  category:"Healthcare", img:"https://placehold.co/400x400/e8f5f1/084d3b?text=ORS+Sachet",   desc:"Rehydration for dehydration and heat"},
+  {id:8,  name:"Vitamin C 500mg 10 Tabs",          price:55,  category:"Supplement", img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Vitamin+C",    desc:"Immunity boost and antioxidant support"},
+  {id:9,  name:"Omeprazole 20mg 10 Caps",          price:35,  category:"Tablet",     img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Omeprazole",   desc:"Acidity heartburn and GERD relief"},
+  {id:10, name:"Multivitamin Syrup 200ml",         price:120, category:"Syrup",      img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Multivitamin", desc:"Daily vitamins and minerals for all ages"},
+  {id:11, name:"Digital Thermometer",             price:180, category:"Healthcare", img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Thermometer",  desc:"Fast and accurate fever measurement"},
+  {id:12, name:"Calcium plus Vitamin D3 10 Tabs", price:75,  category:"Supplement", img:"https://placehold.co/400x400/e8f5f1/084d3b?text=Calcium+D3",   desc:"Strengthens bones and prevents deficiency"}
 ];
 
-var cart = JSON.parse(localStorage.getItem('nidhi_cart') || '[]');
-var activeFilter = 'All';
+var cart = JSON.parse(localStorage.getItem("nidhi_cart") || "[]");
+var activeFilter = "All";
 
-function saveCart(){localStorage.setItem('nidhi_cart',JSON.stringify(cart));}
+function saveCart(){localStorage.setItem("nidhi_cart",JSON.stringify(cart));}
+
+function updateOpenStatus(){
+  var now = new Date();
+  var day = now.getDay();
+  var mins = now.getHours()*60 + now.getMinutes();
+  var open = (day===0) ? 10*60 : 9*60;
+  var close = (day===0) ? 21*60 : 21*60+30;
+  var isOpen = mins>=open && mins<close;
+  var badge = document.getElementById("open-badge");
+  badge.textContent = isOpen ? "OPEN NOW" : "CLOSED";
+  badge.style.background = isOpen ? "#22c55e" : "#ef4444";
+  badge.style.color = "#fff";
+}
 
 function renderProducts(filter){
-  var grid = document.getElementById('products-grid');
-  var list = filter==='All' ? PRODUCTS : PRODUCTS.filter(function(p){return p.category===filter;});
-  if(!list.length){grid.innerHTML='<p style="padding:40px;color:#6b7280;">No products found.</p>';return;}
+  var grid = document.getElementById("products-grid");
+  var list = filter==="All" ? PRODUCTS : PRODUCTS.filter(function(p){return p.category===filter;});
+  if(!list.length){grid.innerHTML="<p style='padding:40px;color:#6b7280;'>No products found.</p>";return;}
   grid.innerHTML = list.map(function(p){
     var inCart = cart.find(function(c){return c.id===p.id;});
-    return '<div class="product-card">'+
-      '<div class="product-img-wrap">'+
-        '<img src="'+p.img+'" alt="'+p.name+'" loading="lazy">'+
-        '<span class="product-category-tag">'+p.category+'</span>'+
-      '</div>'+
-      '<div class="product-body">'+
-        '<div class="product-name">'+p.name+'</div>'+
-        '<div class="product-desc">'+p.desc+'</div>'+
-        '<div class="product-footer">'+
-          '<span class="product-price">Rs.'+p.price+'</span>'+
-          '<button class="add-btn'+(inCart?' added':'')+'" id="add-btn-'+p.id+'" onclick="addToCart('+p.id+')">'+
-            (inCart?'In Cart ('+inCart.qty+')':'+ Add')+
-          '</button>'+
-        '</div>'+
-      '</div>'+
-    '</div>';
-  }).join('');
+    return "<div class='product-card'>" +
+      "<div class='product-img-wrap'>" +
+        "<img src='"+p.img+"' alt='"+p.name+"' loading='lazy'>" +
+        "<span class='product-category-tag'>"+p.category+"</span>" +
+      "</div>" +
+      "<div class='product-body'>" +
+        "<div class='product-name'>"+p.name+"</div>" +
+        "<div class='product-desc'>"+p.desc+"</div>" +
+        "<div class='product-footer'>" +
+          "<span class='product-price'>Rs."+p.price+"</span>" +
+          "<button class='add-btn"+(inCart?" added":"")+"' id='add-btn-"+p.id+"' onclick='addToCart("+p.id+")'>" +
+            (inCart?"In Cart ("+inCart.qty+")":"+ Add") +
+          "</button>" +
+        "</div>" +
+      "</div>" +
+    "</div>";
+  }).join("");
 }
 
 function addToCart(id){
-  var product = PRODUCTS.find(function(p){return p.id===id;});
-  var existing = cart.find(function(c){return c.id===id;});
+  var product=PRODUCTS.find(function(p){return p.id===id;});
+  var existing=cart.find(function(c){return c.id===id;});
   if(existing){existing.qty+=1;}
   else{cart.push({id:id,name:product.name,price:product.price,img:product.img,qty:1});}
-  saveCart(); updateCartUI(); showToast(product.name+' added!');
-  var btn = document.getElementById('add-btn-'+id);
-  if(btn){
-    var u = cart.find(function(c){return c.id===id;});
-    btn.textContent='In Cart ('+u.qty+')';
-    btn.classList.add('added');
-  }
-  var el = document.getElementById('cart-count');
-  el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  saveCart(); updateCartUI();
+  showToast(product.name+" added!");
+  var btn=document.getElementById("add-btn-"+id);
+  if(btn){var u=cart.find(function(c){return c.id===id;});btn.textContent="In Cart ("+u.qty+")";btn.classList.add("added");}
+  var el=document.getElementById("cart-count");el.classList.remove("bump");void el.offsetWidth;el.classList.add("bump");
 }
 
 function changeQty(id,delta){
-  var item = cart.find(function(c){return c.id===id;});
-  if(!item) return;
+  var item=cart.find(function(c){return c.id===id;});
+  if(!item)return;
   item.qty+=delta;
   if(item.qty<=0){cart=cart.filter(function(c){return c.id!==id;});}
-  saveCart(); updateCartUI(); renderProducts(activeFilter);
+  saveCart();updateCartUI();renderProducts(activeFilter);
 }
 
 function removeItem(id){
   cart=cart.filter(function(c){return c.id!==id;});
-  saveCart(); updateCartUI(); renderProducts(activeFilter);
+  saveCart();updateCartUI();renderProducts(activeFilter);
 }
 
 function getTotal(){return cart.reduce(function(s,i){return s+i.price*i.qty;},0);}
 function getCount(){return cart.reduce(function(s,i){return s+i.qty;},0);}
 
 function updateCartUI(){
-  var count=getCount(), total=getTotal();
-  document.getElementById('cart-count').textContent=count;
-  document.getElementById('cart-total').textContent='Rs.'+total;
-  document.getElementById('checkout-btn').disabled=count===0;
-  var el=document.getElementById('cart-items-list');
-  if(!cart.length){
-    el.innerHTML='<div class="cart-empty"><div class="icon">&#128717;</div><p>Your cart is empty.</p></div>';
-    return;
-  }
+  var count=getCount(),total=getTotal();
+  document.getElementById("cart-count").textContent=count;
+  document.getElementById("cart-total").textContent="Rs."+total;
+  document.getElementById("checkout-btn").disabled=count===0;
+  var el=document.getElementById("cart-items-list");
+  if(!cart.length){el.innerHTML="<div class='cart-empty'><div class='icon'>&#128717;</div><p>Your cart is empty.</p></div>";return;}
   el.innerHTML=cart.map(function(item){
-    return '<div class="cart-item">'+
-      '<img class="cart-item-img" src="'+item.img+'" alt="'+item.name+'" loading="lazy">'+
-      '<div class="cart-item-info">'+
-        '<div class="cart-item-name">'+item.name+'</div>'+
-        '<div class="cart-item-price">Rs.'+item.price+' each</div>'+
-        '<div class="cart-item-subtotal">Subtotal: Rs.'+(item.price*item.qty)+'</div>'+
-      '</div>'+
-      '<div class="qty-controls">'+
-        '<button class="qty-btn remove" onclick="removeItem('+item.id+')">&#128465;</button>'+
-        '<button class="qty-btn" onclick="changeQty('+item.id+',-1)">&#8722;</button>'+
-        '<span class="qty-num">'+item.qty+'</span>'+
-        '<button class="qty-btn" onclick="changeQty('+item.id+',1)">&#43;</button>'+
-      '</div>'+
-    '</div>';
-  }).join('');
+    return "<div class='cart-item'>" +
+      "<img class='cart-item-img' src='"+item.img+"' alt='"+item.name+"' loading='lazy'>" +
+      "<div class='cart-item-info'>" +
+        "<div class='cart-item-name'>"+item.name+"</div>" +
+        "<div class='cart-item-price'>Rs."+item.price+" each</div>" +
+        "<div class='cart-item-subtotal'>Subtotal: Rs."+(item.price*item.qty)+"</div>" +
+      "</div>" +
+      "<div class='qty-controls'>" +
+        "<button class='qty-btn remove' onclick='removeItem("+item.id+")'>&#128465;</button>" +
+        "<button class='qty-btn' onclick='changeQty("+item.id+",-1)'>&#8722;</button>" +
+        "<span class='qty-num'>"+item.qty+"</span>" +
+        "<button class='qty-btn' onclick='changeQty("+item.id+",1)'>+</button>" +
+      "</div>" +
+    "</div>";
+  }).join("");
 }
 
-function openCart(){
-  document.getElementById('cart-drawer').classList.add('open');
-  document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeCart(){
-  document.getElementById('cart-drawer').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
+function openCart(){document.getElementById("cart-drawer").classList.add("open");document.getElementById("overlay").classList.add("open");document.body.style.overflow="hidden";}
+function closeCart(){document.getElementById("cart-drawer").classList.remove("open");document.getElementById("overlay").classList.remove("open");document.body.style.overflow="";}
 
 function openCheckout(){
-  // Always reset to fresh form state
-  document.getElementById('success-screen').classList.remove('show');
-  document.getElementById('checkout-form-wrap').style.display='block';
-  document.getElementById('f-name').value='';
-  document.getElementById('f-phone').value='';
-  document.getElementById('f-address').value='';
-  document.getElementById('f-instructions').value='';
-  // Build order summary
-  var html=cart.map(function(item){
-    return '<div class="summary-line"><span>'+item.name+' x'+item.qty+'</span><span>Rs.'+(item.price*item.qty)+'</span></div>';
-  }).join('');
-  html+='<div class="summary-line summary-total"><span>TOTAL</span><span>Rs.'+getTotal()+'</span></div>';
-  document.getElementById('modal-order-summary').innerHTML=html;
-  document.getElementById('checkout-modal').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.getElementById("success-screen").classList.remove("show");
+  document.getElementById("checkout-form-wrap").style.display="block";
+  document.getElementById("f-name").value="";
+  document.getElementById("f-phone").value="";
+  document.getElementById("f-address").value="";
+  document.getElementById("f-instructions").value="";
+  var html=cart.map(function(item){return "<div class='summary-line'><span>"+item.name+" x"+item.qty+"</span><span>Rs."+(item.price*item.qty)+"</span></div>";}).join("");
+  html+="<div class='summary-line summary-total'><span>TOTAL</span><span>Rs."+getTotal()+"</span></div>";
+  document.getElementById("modal-order-summary").innerHTML=html;
+  document.getElementById("checkout-modal").classList.add("open");
+  document.body.style.overflow="hidden";
 }
 
-function closeCheckout(){
-  document.getElementById('checkout-modal').classList.remove('open');
-  document.body.style.overflow='';
-}
+function closeCheckout(){document.getElementById("checkout-modal").classList.remove("open");document.body.style.overflow="";}
 
 function placeOrderWhatsApp(){
-  var name=document.getElementById('f-name').value.trim();
-  var phone=document.getElementById('f-phone').value.trim();
-  var address=document.getElementById('f-address').value.trim();
-  var instructions=document.getElementById('f-instructions').value.trim();
-  if(!name){showToast('Please enter your name');document.getElementById('f-name').focus();return;}
-  if(!phone||!/^[6-9][0-9]{9}$/.test(phone)){showToast('Enter a valid 10-digit phone number');document.getElementById('f-phone').focus();return;}
-  if(!address){showToast('Please enter your delivery address');document.getElementById('f-address').focus();return;}
-  var lines=cart.map(function(i){return '- '+i.name+' x'+i.qty+' = Rs.'+(i.price*i.qty);}).join('\n');
-  var msg='New Order - Nidhi Medical Hall\n\nName: '+name+'\nPhone: '+phone+'\nAddress: '+address+(instructions?'\nInstructions: '+instructions:'')+'\n\nItems:\n'+lines+'\n\nTotal: Rs.'+getTotal();
-  window.open('https://wa.me/918081424477?text='+encodeURIComponent(msg),'_blank');
-  cart=[]; saveCart(); updateCartUI(); renderProducts(activeFilter);
-  document.getElementById('checkout-form-wrap').style.display='none';
-  document.getElementById('success-screen').classList.add('show');
+  var name=document.getElementById("f-name").value.trim();
+  var phone=document.getElementById("f-phone").value.trim();
+  var address=document.getElementById("f-address").value.trim();
+  var instructions=document.getElementById("f-instructions").value.trim();
+  if(!name){showToast("Please enter your name");document.getElementById("f-name").focus();return;}
+  if(!phone||!/^[6-9][0-9]{9}$/.test(phone)){showToast("Enter a valid 10-digit phone number");document.getElementById("f-phone").focus();return;}
+  if(!address){showToast("Please enter your delivery address");document.getElementById("f-address").focus();return;}
+  var lines=cart.map(function(i){return "- "+i.name+" x"+i.qty+" = Rs."+(i.price*i.qty);}).join("\n");
+  var msg="New Order - Nidhi Medical Hall\n\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+(instructions?"\nInstructions: "+instructions:"")+"\n\nItems:\n"+lines+"\n\nTotal: Rs."+getTotal();
+  window.open("https://wa.me/918081424477?text="+encodeURIComponent(msg),"_blank");
+  cart=[];saveCart();updateCartUI();renderProducts(activeFilter);
+  document.getElementById("checkout-form-wrap").style.display="none";
+  document.getElementById("success-screen").classList.add("show");
 }
 
-document.getElementById('filters').addEventListener('click',function(e){
-  var btn=e.target.closest('.filter-btn');
-  if(!btn) return;
-  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
+document.getElementById("filters").addEventListener("click",function(e){
+  var btn=e.target.closest(".filter-btn");
+  if(!btn)return;
+  document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");
   activeFilter=btn.dataset.cat;
   renderProducts(activeFilter);
 });
 
 var toastTimer;
 function showToast(msg){
-  var t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
+  var t=document.getElementById("toast");
+  t.textContent=msg;t.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(function(){t.classList.remove('show');},2200);
+  toastTimer=setTimeout(function(){t.classList.remove("show");},2200);
 }
 
-renderProducts('All');
+updateOpenStatus();
+setInterval(updateOpenStatus,60000);
+renderProducts("All");
 updateCartUI();
 </script>
 </body>
