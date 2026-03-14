@@ -828,6 +828,20 @@
   .cart-items::-webkit-scrollbar-track { background: transparent; }
   .cart-items::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
+  .wa-note {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: #166534;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
   /* Hidden form fields */
   .hidden-fields { display: none; }
 </style>
@@ -936,40 +950,35 @@
 
       <!-- Checkout form (hidden after success) -->
       <div id="checkout-form-wrap">
-        <form id="checkout-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="wa-note">
+          <span>📲</span>
+          <span>After filling this form, WhatsApp will open with your order pre-typed. Just tap <strong>Send</strong>!</span>
+        </div>
 
-          <!-- Hidden fields — compiled by JS before submit -->
-          <div class="hidden-fields">
-            <input type="hidden" name="Order Summary" id="f-order-summary">
-            <input type="hidden" name="Grand Total" id="f-grand-total">
-            <input type="hidden" name="_subject" id="f-subject" value="New Order – Nidhi Medical Hall">
-            <input type="hidden" name="_replyto" id="f-replyto">
-          </div>
+        <div class="form-group">
+          <label>Customer Name <span class="req">*</span></label>
+          <input type="text" id="f-name" placeholder="Your full name">
+        </div>
 
-          <div class="form-group">
-            <label>Customer Name <span class="req">*</span></label>
-            <input type="text" name="Customer Name" id="f-name" placeholder="Your full name" required>
-          </div>
+        <div class="form-group">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" id="f-phone" placeholder="10-digit mobile number">
+        </div>
 
-          <div class="form-group">
-            <label>Phone Number <span class="req">*</span></label>
-            <input type="tel" name="Phone Number" id="f-phone" placeholder="10-digit mobile number" required pattern="[6-9][0-9]{9}">
-          </div>
+        <div class="form-group">
+          <label>Delivery Address <span class="req">*</span></label>
+          <textarea id="f-address" placeholder="House/flat, street, area, landmark, city"></textarea>
+        </div>
 
-          <div class="form-group">
-            <label>Delivery Address <span class="req">*</span></label>
-            <textarea name="Delivery Address" id="f-address" placeholder="House/flat, street, area, landmark, city" required></textarea>
-          </div>
+        <div class="form-group">
+          <label>Special Instructions <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+          <textarea id="f-instructions" placeholder="e.g. ring the bell, leave at door, call before delivery..."></textarea>
+        </div>
 
-          <div class="form-group">
-            <label>Special Instructions <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-            <textarea name="Special Instructions" id="f-instructions" placeholder="e.g. ring the bell, leave at door, call before delivery..."></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn" id="submit-btn">
-            📦 Place Order
-          </button>
-        </form>
+        <button class="submit-btn" id="submit-btn" onclick="placeOrderWhatsApp()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.544 5.878L.057 23.516a.75.75 0 00.918.928l5.788-1.517A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.962 0-3.8-.526-5.385-1.44l-.388-.229-4.017 1.053 1.065-3.898-.252-.404A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Send Order on WhatsApp
+        </button>
       </div>
 
     </div>
@@ -989,12 +998,12 @@
 <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
 <footer>
   <p><strong>Nidhi Medical Hall</strong> · Azamgarh, Uttar Pradesh</p>
-  <p style="margin-top:6px">📞 8081424477 · ✉️ adraj11o2@gmail.com</p>
+  <p style="margin-top:6px">📞 8081424477 · ✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="29484d5b48431818461b694e44484045074a4644">[email&#160;protected]</a></p>
   <p style="margin-top:8px;font-size:0.72rem;opacity:0.7">This is an order collection system. Payment is handled offline at delivery.</p>
 </footer>
 
 <!-- ─── JAVASCRIPT ───────────────────────────────────────────────────── -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── PRODUCTS DATA ──────────────────────────────────────────────────────
 const PRODUCTS = [
   {
@@ -1272,61 +1281,49 @@ function closeCheckout() {
   document.body.style.overflow = '';
 }
 
-// ── FORM SUBMISSION ────────────────────────────────────────────────────
-document.getElementById('checkout-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
+// ── WHATSAPP ORDER ─────────────────────────────────────────────────────
+function placeOrderWhatsApp() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const address = document.getElementById('f-address').value.trim();
+  const instructions = document.getElementById('f-instructions').value.trim();
 
-  // Compile order summary text for hidden field
-  const summaryLines = cart.map(item =>
-    `${item.name} x${item.qty} = ₹${item.price * item.qty}`
-  ).join(' | ');
+  // Validate
+  if (!name) { showToast('⚠️ Please enter your name'); document.getElementById('f-name').focus(); return; }
+  if (!phone || !/^[6-9][0-9]{9}$/.test(phone)) { showToast('⚠️ Enter a valid 10-digit phone number'); document.getElementById('f-phone').focus(); return; }
+  if (!address) { showToast('⚠️ Please enter your delivery address'); document.getElementById('f-address').focus(); return; }
 
-  document.getElementById('f-order-summary').value = summaryLines;
-  document.getElementById('f-grand-total').value = `₹${getTotal()}`;
-  document.getElementById('f-replyto').value = document.getElementById('f-phone').value;
-  document.getElementById('f-subject').value = `New Order – Nidhi Medical Hall – ₹${getTotal()} – ${document.getElementById('f-name').value}`;
+  // Build WhatsApp message
+  const itemLines = cart.map(item =>
+    `• ${item.name} × ${item.qty} = ₹${item.price * item.qty}`
+  ).join('\n');
 
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Placing order...';
+  const message =
+`🏥 *New Order – Nidhi Medical Hall*
 
-  try {
-    const formData = new FormData(this);
-    const response = await fetch(this.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+📍 *Address:* ${address}${instructions ? `\n📝 *Instructions:* ${instructions}` : ''}
 
-    if (response.ok) {
-      // Clear cart
-      cart = [];
-      saveCart();
-      updateCartUI();
-      renderProducts(activeFilter);
+🛒 *Order Items:*
+${itemLines}
 
-      // Show success screen
-      document.getElementById('checkout-form-wrap').style.display = 'none';
-      document.getElementById('success-screen').classList.add('show');
-    } else {
-      throw new Error('Form submission failed');
-    }
-  } catch (err) {
-    // If Formspree not set up yet, show success anyway for demo
-    if (this.action.includes('YOUR_FORM_ID')) {
-      cart = [];
-      saveCart();
-      updateCartUI();
-      renderProducts(activeFilter);
-      document.getElementById('checkout-form-wrap').style.display = 'none';
-      document.getElementById('success-screen').classList.add('show');
-    } else {
-      alert('Something went wrong. Please try again or call us directly at 8081424477.');
-      btn.disabled = false;
-      btn.innerHTML = '📦 Place Order';
-    }
-  }
-});
+💰 *Grand Total: ₹${getTotal()}*
+
+_Order placed via website_`;
+
+  // Open WhatsApp
+  const waURL = `https://wa.me/918081424477?text=${encodeURIComponent(message)}`;
+  window.open(waURL, '_blank');
+
+  // Clear cart & show success
+  cart = [];
+  saveCart();
+  updateCartUI();
+  renderProducts(activeFilter);
+  document.getElementById('checkout-form-wrap').style.display = 'none';
+  document.getElementById('success-screen').classList.add('show');
+}
 
 // ── CATEGORY FILTERS ───────────────────────────────────────────────────
 document.getElementById('filters').addEventListener('click', function(e) {
@@ -1348,9 +1345,4 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-// ── INIT ───────────────────────────────────────────────────────────────
-renderProducts('All');
-updateCartUI();
-</script>
-</body>
-    </html>
+// ── INIT ────────�
